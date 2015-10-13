@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
+  # get 'sessions/new'
 
-  get 'users/new'
+  # get 'users/new'
 
   root 'welcome#index'
   # The priority is based upon order of creation: first created -> highest priority.
