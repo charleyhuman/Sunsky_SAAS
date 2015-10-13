@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
   	if @user && @user.authenticate(params[:session][:password])
   		redirect_to user_path(@user)
   	else
+      flash.now[:danger] = 'Invalid password'
   		render "new"
   	end
   end
