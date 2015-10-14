@@ -11,4 +11,7 @@ class SessionsController < ApplicationController
   		render "new"
   	end
   end
+
+  def error
+  end
 end

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
+  get 'error' => 'sessions#error'
   
   get 'signup' => 'users#new'
   get 'login' => 'sessions#new'
