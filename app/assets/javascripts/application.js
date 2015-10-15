@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-$(function(){
-  $('#keywords').tablesorter(); 
-});
+
+// 暂时不用
+// $(function(){
+//   $('#keywords').tablesorter(); 
+// });

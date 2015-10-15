@@ -28,7 +28,8 @@
             <th>ID</th>
             <th>Address</th>
             <th>Phone</th>     
-
+            <th>action</th>
+            
           </tr>
         </thead>
         <tbody>
@@ -38,6 +39,7 @@
                 <td><%= x.employee_id %></td>
                 <td><%= x.address %></td>
                 <td><%= x.phone %></td>
+                <td><%= link_to "Edit" "" %></td>
             </tr>
           <% end %>
         </tbody>

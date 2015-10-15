@@ -35,13 +35,12 @@ class UsersController < ApplicationController
   	end
   end
 
+  def edit
+  end
+
   private
   def user_params
     params.require(:user).permit(:name, :employee_id, :password, :password_confirmation)
   end
 
-  private
-  def user_info_params
-    # params.require(:user_info).permit()
-  end
 end
