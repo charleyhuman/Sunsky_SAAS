@@ -18,24 +18,31 @@
 
       </ul>
       <%= link_to_if(!@subordinate_infos.nil?, "show my subordinates", {controller: "sessions", action: "new"}) %>
-      <table>
+
+      <table border="1" style="width:100%">
         <thead>
           <tr>
-            <% @subordinate_infos.first.attributes.each do |attr| %>
-              <th><%= attr%></th>
-            <% end %>
+           
+            <th>Name</th>
+            <th>ID</th>
+            <th>Address</th>
+            <th>Phone</th>     
+
           </tr>
         </thead>
         <tbody>
           <% @subordinate_infos.each do |x| %>
             <tr>
-              <% x.attributes.each do |attr| %>
-                <td><%= x[attr] %></td>
-              <% end %>
+                <td><%= x.name %></td>
+                <td><%= x.employee_id %></td>
+                <td><%= x.address %></td>
+                <td><%= x.phone %></td>
             </tr>
           <% end %>
         </tbody>
       </table>
+
+
 
 
 </div>
