@@ -1,21 +1,23 @@
 <div> 
       <ul >
-            <li>
-            "Name"
+            Name:
             <%= @user_info.name %>
             </li>
             <li>
-            "Employee ID"
+            Employee ID:
             <%= @user_info.employee_id %>
             </li>
             <li>
-            "Address"
+            Address:
             <%= @user_info.address %>
             </li>
             <li>
-            "Phone"
+            Phone:
             <%= @user_info.phone %>
             </li>
 
       </ul>
+      <%= form_for @subordinates do |f| %>
+            f.address
+      <% end %>
 </div>

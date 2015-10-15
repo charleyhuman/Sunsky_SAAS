@@ -9,7 +9,8 @@ class UsersController < ApplicationController
   def show
   	@user = User.find(params[:id])
     @user_info = UserInfo.find_by_employee_id(@user.employee_id)
-    
+
+
   end
 
   def create
@@ -38,6 +39,6 @@ class UsersController < ApplicationController
 
   private
   def user_info_params
-    params.require(:user_info).permit()
+    # params.require(:user_info).permit()
   end
 end
