@@ -17,7 +17,25 @@
             </li>
 
       </ul>
-      <%= form_for @subordinates do |f| %>
-            f.address
-      <% end %>
+      <%= link_to_if(!@subordinate_infos.nil?, "show my subordinates", {controller: "sessions", action: "new"}) %>
+      <table>
+        <thead>
+          <tr>
+            <% @subordinate_infos.first.attributes.each do |attr| %>
+              <th><%= attr%></th>
+            <% end %>
+          </tr>
+        </thead>
+        <tbody>
+          <% @subordinate_infos.each do |x| %>
+            <tr>
+              <% x.attributes.each do |attr| %>
+                <td><%= x[attr] %></td>
+              <% end %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+
 </div>
