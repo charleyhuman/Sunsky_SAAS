@@ -5,6 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+require_relative "seed_class_attd.rb"
+require_relative "seed_class_info.rb"
+
+createClassAttd
+createClassInfo
 
 User.create(name: 'Adair Wiley', employee_id: '101317862', password: '123456')
 User.create(name: 'Allen Darrin', employee_id: '110246688', password: '123456')
@@ -7319,3 +7324,4 @@ Certificate.create(employee_id: '106034145', certificate_name: 'EMT-PWalletCard'
 Certificate.create(employee_id: '106034145', certificate_name: 'Driver/Engineer-Pumper', issued_by: 'CollegeStation', date_issued: '5/1/2009', credit_hour: '80')
 Certificate.create(employee_id: '106034145', certificate_name: 'DriverTraining', issued_by: 'CollegeStation', date_issued: '1/8/2009', credit_hour: '2')
 Certificate.create(employee_id: '106034145', certificate_name: 'HealthcareProviderCPR', issued_by: 'AmericanHeart', date_issued: '11/25/2009', credit_hour: '6')
+
