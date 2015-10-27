@@ -26,7 +26,7 @@ User.create(name: 'Berkobein RichardM.', employee_id: '103266359', password: '12
 User.create(name: 'Bishop James', employee_id: '105236331', password: '123456')
 User.create(name: 'Blake Canaan', employee_id: '101095110', password: '123456')
 User.create(name: 'Blount Cody', employee_id: '107134357', password: '123456')
-User.create(name: 'Bradshaw Billy', employee_id: '111195971', password: '123456')
+User.create(name: 'Bradshaw Billy', employee_id: '111195971', password: '123456', is_supervisor: true)
 User.create(name: 'Bratsen Kord', employee_id: '101122241', password: '123456')
 User.create(name: 'Brown Michael', employee_id: '101254729', password: '123456')
 User.create(name: 'Brunson Matthew', employee_id: '107131316', password: '123456')

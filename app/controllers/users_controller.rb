@@ -9,11 +9,9 @@ class UsersController < ApplicationController
   def show
   	@user = User.find(params[:id])
     @user_info = UserInfo.find_by_employee_id(@user.employee_id)
-    relation = SupervisorRelation.where(:supervisor_emp_id => @user.employee_id)
-    subordinate_ids = Array.new
-    relation.each {|r| subordinate_ids << r.subodinate_emp_id}
-    @subordinate_infos = subordinate_ids.map {|si| UserInfo.find_by_employee_id(si)}
-
+    if @user.is_supervisor
+      @user_info_total = UserInfo.all
+    end
   end
 
   def create
