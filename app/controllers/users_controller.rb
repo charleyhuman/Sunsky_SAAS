@@ -9,15 +9,13 @@ class UsersController < ApplicationController
   def show
   	@user = User.find(params[:id])
     @user_info = UserInfo.find_by_employee_id(@user.employee_id)
-    relation = SupervisorRelation.where(:supervisor_emp_id => @user.employee_id)
-    subordinate_ids = Array.new
-    relation.each {|r| subordinate_ids << r.subodinate_emp_id}
-    @subordinate_infos = subordinate_ids.map {|si| UserInfo.find_by_employee_id(si)}
-
+    if @user.is_supervisor
+      @user_info_total = UserInfo.all
+    end
   end
 
   def create
-
+    @user = User.new(user_params)
   	if !User.find_by_employee_id(user_params[:employee_id])
       @user = User.new(user_params)
     else
@@ -36,6 +34,16 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      redirect_to @user
+    else
+      render 'edit'
+    end
   end
 
   private
