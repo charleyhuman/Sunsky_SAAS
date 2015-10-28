@@ -14,6 +14,14 @@ class UsersController < ApplicationController
     end
     @user_certificates = Certificate.where(:employee_id => @user.employee_id)
     @user_classes = ClassAttd.where(:employee_id => @user.employee_id)
+    @class_names = Hash.new
+    @user_classes.each do |uc|
+      class_info = ClassInfo.find_by_class_number(uc.class_number)
+      if !class_info.nil?
+        @class_names[uc.class_number] = class_info.class_name
+      end
+    end
+
   end
 
   def create
