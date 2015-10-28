@@ -68,14 +68,16 @@
           </tr>
         </thead>
         <tbody>
-          <% @user_info_total.each do |x| %>
-            <tr>
-                <td><%= x.name %></td>
-                <td><%= x.employee_id %></td>
-                <td><%= x.address %></td>
-                <td><%= x.phone %></td>
-                <td><%= link_to "Edit" "" %></td>
-            </tr>
+          <% if @user.is_supervisor%>
+            <% @user_info_total.each do |x| %>
+              <tr>
+                  <td><%= x.name %></td>
+                  <td><%= x.employee_id %></td>
+                  <td><%= x.address %></td>
+                  <td><%= x.phone %></td>
+                  <td><%= link_to "Edit" "" %></td>
+              </tr>
+            <% end %>
           <% end %>
         </tbody>
       </table>

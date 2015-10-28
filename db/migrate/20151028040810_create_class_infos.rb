@@ -17,11 +17,11 @@ class CreateClassInfos < ActiveRecord::Migration
 		t.string :inhouse
 		t.string :shift
 		t.string :lead_instructor
-		t.string :lead_instructor
-		t.string "2nd_instructor"
-		t.string "2nd_instructor"
-		t.string "3nd_instructor"
-		t.string "3nd_instructor"
+		t.string :lead_instructor_num
+		t.string :the_2nd_instructor
+		t.string :the_2nd_instructor_num
+		t.string :the_3nd_instructor
+		t.string :the_3nd_instructor_num
 		t.string :officer_in_charge
 		t.string :class_host
 		t.string :number_of_students
@@ -65,9 +65,9 @@ class CreateClassInfos < ActiveRecord::Migration
 		t.string :joint_training
 		t.string :agency_inv_bryan
 		t.string :agency_inv_sbcvfd
-		t.string :agency_inv
-		t.string :agency_inv
-		t.string :agency_inv
+		t.string :agency_inv_1
+		t.string :agency_inv_2
+		t.string :agency_inv_3
 		t.string :agency_inv_tamu
 		t.string :agency_inv_stj_ems
 		t.string :agency_inv_tamu_hs
@@ -82,7 +82,7 @@ class CreateClassInfos < ActiveRecord::Migration
 		t.string :station_fa
 		t.string :ems_credit
 		t.string :preparatory
-		t.string "airway_mgmt/vent"
+		t.string :airway_mgmt_vent
 		t.string :patient_assessment
 		t.string :trauma
 		t.string :medical
@@ -105,6 +105,7 @@ class CreateClassInfos < ActiveRecord::Migration
 		t.string :objective_3
 		t.string :objective_4
 		t.string :objective_5
+
       t.timestamps null: false
     end
   end
