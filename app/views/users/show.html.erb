@@ -59,10 +59,10 @@
         <tbody>
            <% @user_certificates.each do |x| %>
               <tr>
-                  <td><%= x.certificate_name %></td>
+                  <td><%= x.certificate %></td>
                   <td><%= x.issued_by %></td>
                   <td><%= x.date_issued %></td>
-                  <td><%= x.credit_hour %></td>
+                  <td><%= x.credit_hours %></td>
               </tr>
             <% end %>
         </tbody>

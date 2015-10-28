@@ -11,19 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151028040810) do
+ActiveRecord::Schema.define(version: 20151028185232) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "certificates", force: :cascade do |t|
+    t.string   "ssn"
     t.string   "employee_id"
-    t.string   "certificate_name"
+    t.string   "certificate"
     t.string   "issued_by"
     t.string   "date_issued"
-    t.string   "credit_hour"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.string   "credit_hours"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "class_attds", force: :cascade do |t|
@@ -151,14 +152,15 @@ ActiveRecord::Schema.define(version: 20151028040810) do
     t.string   "name"
     t.string   "address"
     t.string   "city"
+    t.string   "county"
     t.string   "state"
-    t.string   "zipcode"
+    t.string   "zip"
     t.string   "phone"
     t.string   "tdl"
     t.string   "cdl"
     t.string   "dl_class"
     t.string   "tdh_id"
-    t.string   "tcff_pin"
+    t.string   "tcfp_pin"
     t.string   "date_of_birth"
     t.string   "shift"
     t.string   "hire_date"
@@ -169,6 +171,8 @@ ActiveRecord::Schema.define(version: 20151028040810) do
     t.string   "ops"
     t.string   "division"
     t.string   "email"
+    t.string   "password"
+    t.string   "authorization"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
