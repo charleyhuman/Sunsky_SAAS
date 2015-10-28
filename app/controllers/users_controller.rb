@@ -12,6 +12,8 @@ class UsersController < ApplicationController
     if @user.is_supervisor
       @user_info_total = UserInfo.all
     end
+    @user_certificates = Certificate.where(:employee_id => @user.employee_id)
+    @user_classes = ClassAttd.where(:employee_id => @user.employee_id)
   end
 
   def create
