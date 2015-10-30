@@ -52,15 +52,15 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = current_user
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = current_user
     if @user.update_attributes(user_params)
-      redirect_to @user
+      redirect_to :root and return
     else
-      render 'edit'
+      redirect_to url_for(:controller => :sessions, :action => :error) and return
     end
   end
 
