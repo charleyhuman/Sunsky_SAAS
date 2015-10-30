@@ -7,6 +7,14 @@ class UsersController < ApplicationController
   end
 
   def show
+
+    if current_user.nil?
+      redirect_to url_for(:controller => :sessions, :action => :error) and return
+    end
+    unless current_user.is_supervisor
+      redirect_to url_for(:controller => :sessions, :action => :error) and return
+    end
+
   	@user = User.find(params[:id])
     @user_info = UserInfo.find_by_employee_id(@user.employee_id)
     if @user.is_supervisor
