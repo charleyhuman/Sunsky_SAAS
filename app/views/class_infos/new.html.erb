@@ -1,0 +1,24 @@
+<h1>Create new Class</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@classinfo) do |f| %>
+      <%= f.label "Class Name" %>
+      <%= f.text_field :class_name %>
+
+      <%= f.label "Class Number" %>
+      <%= f.text_field :class_number %>
+
+      <%= f.label "Class Location" %>
+      <%= f.text_field :class_location %>
+
+      <%= f.label "CE Hours" %>
+      <%= f.text_field :ce_hours %>
+
+      <%= f.label "Class Host" %>
+      <%= f.text_field :class_host %>
+
+      <%= f.submit "Create class", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

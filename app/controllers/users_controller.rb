@@ -33,7 +33,6 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
   	if !User.find_by_employee_id(user_params[:employee_id])
       @user = User.new(user_params)
     else
