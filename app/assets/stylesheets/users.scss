@@ -6,6 +6,11 @@
 @import url('http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css');
 
 
+h1 {
+  color: black;
+  font-size: 25px;
+}
+
 table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
@@ -37,7 +42,7 @@ table {
 
 main {
   min-width: 320px;
-  max-width: 800px;
+  max-width: 1200px;
   padding: 0px;
   margin: 0 auto;
   background: #fff;
@@ -69,10 +74,6 @@ main {
   margin-right: 10px;
 }
 
-label[for*='1']:before { content: '\f1cb'; }
-label[for*='2']:before { content: '\f17d'; }
-label[for*='3']:before { content: '\f16b'; }
-label[for*='4']:before { content: '\f1a9'; }
 
 .user-tabs label:hover {
   color: #888;
@@ -89,7 +90,8 @@ label[for*='4']:before { content: '\f1a9'; }
 #tab1:checked ~ #content1,
 #tab2:checked ~ #content2,
 #tab3:checked ~ #content3,
-#tab4:checked ~ #content4 {
+#tab4:checked ~ #content4,
+#tab5:checked ~ #content5 {
   display: block;
 }
 

@@ -24,6 +24,7 @@ class SessionsController < ApplicationController
     @user_info = UserInfo.find_by_employee_id(@user.employee_id)
     if @user.is_supervisor
       @user_info_total = UserInfo.all
+      @class_info_total = ClassInfo.all
     end
     @user_certificates = Certificate.where(:employee_id => @user.employee_id)
     @user_classes = ClassAttd.where(:employee_id => @user.employee_id)
@@ -44,4 +45,6 @@ class SessionsController < ApplicationController
       log_out
       redirect_to root_url
   end
+
+
 end

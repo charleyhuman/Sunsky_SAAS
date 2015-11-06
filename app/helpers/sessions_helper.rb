@@ -23,4 +23,9 @@ module SessionsHelper
 		session.delete(:user_id)
 		@current_user = nil
 	end
+
+	# Find path for each user
+	 def get_user_path(user_info)
+     	user_path( User.find_by_employee_id(user_info.employee_id) )
+     end
 end

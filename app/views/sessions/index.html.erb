@@ -14,6 +14,9 @@
   <% if @user.is_supervisor %>
     <input id="tab4" type="radio" name="tabs">
     <label for="tab4">Employees</label>
+
+    <input id="tab5" type="radio" name="tabs">
+    <label for="tab5">Classes</label>
   <% end %>
     
   <section id="content1">
@@ -113,7 +116,7 @@
           <% if @user.is_supervisor%>
             <% @user_info_total.each do |x| %>
               <tr>
-                  <td><%= x.name %></td>
+                  <td><%= link_to x.name, get_user_path(x) %></td>
                   <td><%= x.employee_id %></td>
                   <td><%= x.address %></td>
                   <td><%= x.phone %></td>
@@ -124,6 +127,48 @@
         </tbody>
       </table>
   </section>
+
+    <section id="content5">
+
+    <form class="container">
+    <div class="row">
+        <div class="col-md-3">
+        </div>
+
+        <div class="col-md-3">
+            <button class="btn" style="float: right; position: relative;"><%= link_to "Create Class", '../index' %></button>
+        </div>
+    </div>
+</form>
+
+    <table border="1" style="width:50%">
+      <caption>Information of Classes</caption>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Class Number</th>
+            <th>CE Hours</th>
+            <th>Instructor</th>     
+            <th>Location</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          <% if @user.is_supervisor%>
+            <% @class_info_total.each do |x| %>
+              <tr>
+                  <td><%= x.class_name %></td>
+                  <td><%= x.class_number %></td>
+                  <td><%= x.ce_hours %></td>
+                  <td><%= x.lead_instructor %></td>
+                  <td><%= x.class_location %></td>
+              </tr>
+            <% end %>
+            <% end %>
+        </tbody>
+      </table>
+  </section>
+
     
 </div>
 </main>

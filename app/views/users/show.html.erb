@@ -1,5 +1,17 @@
 <main>
 
+<form class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <h1 style='float: left;'>Employee Information</h1>
+        </div>
+
+        <div class="col-md-3">
+            <button class="btn" style="float: right; position: relative; top: 10px; right: 10px;"><%= link_to "Return", '../index' %></button>
+        </div>
+    </div>
+</form>
+
 <div class="user-tabs">
 
   <input id="tab1" type="radio" name="tabs" checked>
@@ -10,11 +22,6 @@
     
   <input id="tab3" type="radio" name="tabs">
   <label for="tab3">Class</label>
-
-  <% if @user.is_supervisor %>
-    <input id="tab4" type="radio" name="tabs">
-    <label for="tab4">Employees</label>
-  <% end %>
     
   <section id="content1">
 <div class="center"> 
@@ -93,37 +100,5 @@
         </tbody>
       </table>
   </section>
-    
-  <section id="content4">
-
-    <table border="1" style="width:50%">
-      <caption>Information of Employees</caption>
-        <thead>
-          <tr>
-           
-            <th>Name</th>
-            <th>ID</th>
-            <th>Address</th>
-            <th>Phone</th>     
-            <th>action</th>
-            
-          </tr>
-        </thead>
-        <tbody>
-          <% if @user.is_supervisor%>
-            <% @user_info_total.each do |x| %>
-              <tr>
-                  <td><%= x.name %></td>
-                  <td><%= x.employee_id %></td>
-                  <td><%= x.address %></td>
-                  <td><%= x.phone %></td>
-                  <td><%= link_to "Edit" "" %></td>
-              </tr>
-            <% end %>
-          <% end %>
-        </tbody>
-      </table>
-  </section>
-    
 </div>
 </main>
