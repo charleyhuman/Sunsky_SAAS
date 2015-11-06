@@ -15,6 +15,8 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
+//= require moment.js
+//= require bootstrap-sortable.js
 
 // 暂时不用
 // $(function(){

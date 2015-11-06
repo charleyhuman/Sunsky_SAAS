@@ -20,100 +20,107 @@
   <% end %>
     
   <section id="content1">
-<div class="center"> 
-      <table style="width:50%">
-        <tr>
+
+<div class="container">          
+  <table class="table table-hover">
+    <thead>
+      <tr>
         <th>Name</th>
-          <th> <%= @user_info.name %> </th>
-        </tr>
-        <tr>
-          <th>Employee ID</th>
-          <th> <%= @user_info.employee_id %> </th>
-        </tr>
-        <tr>
-          <th>SSN</th>
-          <th> <%= @user_info.ssn %> </th>
-        </tr>
-        <tr>
-          <th>Phone Number</th>
-          <th> <%= @user_info.phone %> </th>
-        </tr>
-        <tr>
-          <th>Division</th>
-          <th> <%= @user_info.division %> </th>
-        </tr>
-        
-      </table>
+        <th><%= @user_info.name %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>Employee ID</th>
+        <th> <%= @user_info.employee_id %> </th>
+      </tr>
+      <tr>
+        <th>SSN</th>
+        <th> <%= @user_info.ssn %> </th>
+      </tr>
+      <tr>
+        <th>Phone Number</th>
+        <th> <%= @user_info.phone %> </th>
+      </tr>
+      <tr>
+        <th>Division</th>
+        <th> <%= @user_info.division %> </th>
+      </tr>
+    </tbody>
+  </table>
 </div>
+
   </section>
     
   <section id="content2">
 
-   <table border="1" style="width:50%">
-        <thead>
-          <tr>
-           
-            <th>Certificate Name</th>
-            <th>Issued By</th>
-            <th>Issue Date</th>
-            <th>Credit hour</th>
-          </tr>
-        </thead>
-        <tbody>
-           <% @user_certificates.each do |x| %>
+  <div class="container">          
+  <table class="table table-hover sortable">
+    <thead>
+      <tr>
+        <th>Certificate Name</th>
+        <th>Issued By</th>
+        <th>Issue Date</th>
+        <th>Credit hour</th>
+      </tr>
+    </thead>
+    <tbody>
+     <% @user_certificates.each do |x| %>
               <tr>
                   <td><%= x.certificate %></td>
                   <td><%= x.issued_by %></td>
                   <td><%= x.date_issued %></td>
                   <td><%= x.credit_hours %></td>
               </tr>
-            <% end %>
-        </tbody>
-      </table>
-
+     <% end %>
+    </tbody>
+  </table>
+</div>
  
   </section>
+
     
   <section id="content3">
-     <table border="1" style="width:80%">
-        <thead>
+
+      <div class="container">          
+  <table class="table table-hover sortable">
+    <thead>
+      <tr>
+        <th>Class Name</th>
+        <th>Class Number</th>
+        <th>CE Hours</th>
+        <th>Grade</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @user_classes.each do |x| %>
           <tr>
-            <th>Class Name</th>
-            <th>Class Number</th>
-            <th>CE Hours</th>
-            <th>Grade</th>
+              <td><%= @class_names[x.class_number] %></td>
+              <td><%= x.class_number %></td>
+              <td><%= x.ce_hours %></td>
+              <td><%= x.grade %></td>
           </tr>
-        </thead>
-        <tbody>
-           <% @user_classes.each do |x| %>
-              <tr>
-                  <td><%= @class_names[x.class_number] %></td>
-                  <td><%= x.class_number %></td>
-                  <td><%= x.ce_hours %></td>
-                  <td><%= x.grade %></td>
-              </tr>
-            <% end %>
-        </tbody>
-      </table>
+      <% end %>
+    </tbody>
+  </table>
+</div>
   </section>
     
   <section id="content4">
 
-    <table border="1" style="width:50%">
-      <caption>Information of Employees</caption>
-        <thead>
-          <tr>
-           
-            <th>Name</th>
+       <div class="container">          
+  <table class="table table-hover sortable">
+    <thead>
+      <tr>
+          <th>Name</th>
             <th>ID</th>
             <th>Address</th>
             <th>Phone</th>     
             <th>action</th>
-            
-          </tr>
-        </thead>
-        <tbody>
-          <% if @user.is_supervisor%>
+      </tr>
+    </thead>
+    <tbody>
+      <% if @user.is_supervisor%>
             <% @user_info_total.each do |x| %>
               <tr>
                   <td><%= link_to x.name, get_user_path(x) %></td>
@@ -124,8 +131,10 @@
               </tr>
             <% end %>
           <% end %>
-        </tbody>
-      </table>
+    </tbody>
+  </table>
+</div>
+
   </section>
 
     <section id="content5">
@@ -141,20 +150,19 @@
     </div>
 </form>
 
-    <table border="1" style="width:50%">
-      <caption>Information of Classes</caption>
-        <thead>
-          <tr>
+       <div class="container">          
+  <table class="table table-hover sortable">
+    <thead>
+      <tr>
             <th>Name</th>
             <th>Class Number</th>
             <th>CE Hours</th>
             <th>Instructor</th>     
             <th>Location</th>
-            
-          </tr>
-        </thead>
-        <tbody>
-          <% if @user.is_supervisor%>
+      </tr>
+    </thead>
+    <tbody>
+  <% if @user.is_supervisor%>
             <% @class_info_total.each do |x| %>
               <tr>
                   <td><%= x.class_name %></td>
@@ -165,8 +173,10 @@
               </tr>
             <% end %>
             <% end %>
-        </tbody>
-      </table>
+    </tbody>
+  </table>
+</div>
+
   </section>
 
     

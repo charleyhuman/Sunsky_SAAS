@@ -41,14 +41,13 @@ table {
 
 
 main {
-  min-width: 320px;
-  max-width: 1400px;
   padding: 0px;
   margin: 0 auto;
   background: #fff;
 }
 
 .user-tabs section {
+  width: 1200px;
   display: none;
   padding: 20px 0 0;
   border-top: 1px solid #ddd;
@@ -68,11 +67,6 @@ main {
   border: 1px solid transparent;
 }
 
-.user-tabs label:before {
-  font-family: fontawesome;
-  font-weight: normal;
-  margin-right: 10px;
-}
 
 
 .user-tabs label:hover {
