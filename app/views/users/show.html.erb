@@ -52,6 +52,7 @@
   </section>
     
   <section id="content2">
+    <button class="btn" style="float: right; position: relative;"><%= link_to "Add Certificate", url_for(:controller => :certificates, :action => :new) %></button>
 
    <table border="1" style="width:50%">
         <thead>
@@ -81,6 +82,7 @@
   </section>
     
   <section id="content3">
+    <button class="btn" style="float: right; position: relative;"><%= link_to "Add Class Attendance", url_for(:controller => :class_attds, :action => :new) %></button>
      <table border="1" style="width:80%">
         <thead>
           <tr>
@@ -98,7 +100,7 @@
                   <td><%= x.class_number %></td>
                   <td><%= x.ce_hours %></td>
                   <td><%= x.grade %></td>
-                  <td><button class="btn"><%= link_to "delete", class_attd_path(x), :method => 'delete', :data => {confirm: "Are you sure?"} %></button></td>
+                  <td><button class="btn"><%= link_to "delete", class_attd_path(x), :method => 'delete', :data => {confirm: "Are you sure?"} %></buttocccn></td>
               </tr>
             <% end %>
         </tbody>

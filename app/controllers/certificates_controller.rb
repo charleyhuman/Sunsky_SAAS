@@ -7,4 +7,12 @@ class CertificatesController < ApplicationController
 		redirect_to user_path(@user)
 	end
 
+	def new
+		@certificate = Certificate.new
+		@ww = params[:employee_id]
+	end
+
+	def create
+
+	end
 end
