@@ -13,6 +13,17 @@ class CertificatesController < ApplicationController
 	end
 
 	def create
-		
+		@certificate = Certificate.new(certificate_params)
+		if @certificate.save
+			redirect_to user_path(User.find_by_employee_id(@certificate.employee_id)) and return
+		else
+			render 'new'
+		end
+
 	end
+
+	private
+  	def certificate_params
+    	params.require(:certificate).permit(:certificate, :employee_id, :issued_by, :data_issued, :credit_hours)
+  	end
 end
