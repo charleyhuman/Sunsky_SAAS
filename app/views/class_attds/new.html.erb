@@ -1,0 +1,20 @@
+<h1>Create A New Class Attendance</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@class_attd) do |f| %>
+      <%= f.label "Class Number" %>
+      <%= f.text_field :class_number %>
+
+      <%= f.hidden_field :employee_id, value: @employee_id %>
+
+      <%= f.label "Grade" %>
+      <%= f.text_field :grade %>
+
+      <%= f.label "CE Hours" %>
+      <%= f.text_field :ce_hours %>
+
+      <%= f.submit "Create Class Attendance", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
