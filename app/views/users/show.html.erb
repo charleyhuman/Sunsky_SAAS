@@ -52,7 +52,7 @@
   </section>
     
   <section id="content2">
-    <button class="btn" style="float: right; position: relative;"><%= link_to "Add Certificate", url_for(:controller => :certificates, :action => :new) %></button>
+    <button class="btn" style="float: right; position: relative;"><%= link_to "Add Certificate", new_certificate_path(:employee_id => @user_info.employee_id) %></button>
 
    <table border="1" style="width:50%">
         <thead>
@@ -82,7 +82,7 @@
   </section>
     
   <section id="content3">
-    <button class="btn" style="float: right; position: relative;"><%= link_to "Add Class Attendance", url_for(:controller => :class_attds, :action => :new) %></button>
+    <button class="btn" style="float: right; position: relative;"><%= link_to "Add Class Attendance", new_class_attd_path(:employee_id => @user_info.employee_id) %></button>
      <table border="1" style="width:80%">
         <thead>
           <tr>

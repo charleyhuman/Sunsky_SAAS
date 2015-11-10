@@ -9,10 +9,10 @@ class CertificatesController < ApplicationController
 
 	def new
 		@certificate = Certificate.new
-		@ww = params[:employee_id]
+		@employee_id = params[:employee_id]
 	end
 
 	def create
-
+		
 	end
 end

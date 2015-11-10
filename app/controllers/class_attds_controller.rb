@@ -7,4 +7,13 @@ class ClassAttdsController < ApplicationController
 		redirect_to user_path(@user)
 	end
 
+	def new
+		@class_attd = ClassAttd.new
+		@employee_id = params[:employee_id]
+	end
+
+	def create
+		
+	end
+
 end
