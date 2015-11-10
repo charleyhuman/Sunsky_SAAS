@@ -1,0 +1,23 @@
+<h1>Create A New Certificate</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@certificate) do |f| %>
+      <%= f.hidden_field :employee_id, value: @employee_id %>
+
+      <%= f.label "Certificate" %>
+      <%= f.text_field :certificate %>
+
+      <%= f.label "Issued By" %>
+      <%= f.text_field :issued_by %>
+
+      <%= f.label "Date Issued" %>
+      <%= f.text_field :date_issued %>
+
+      <%= f.label "CE Hours" %>
+      <%= f.text_field :credit_hours %>
+
+      <%= f.submit "Create Certificate", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
