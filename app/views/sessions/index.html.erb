@@ -116,7 +116,7 @@
             <th>ID</th>
             <th>Address</th>
             <th>Phone</th>     
-            <th>action</th>
+            <!-- <th>action</th> -->
       </tr>
     </thead>
     <tbody>
@@ -127,7 +127,7 @@
                   <td><%= x.employee_id %></td>
                   <td><%= x.address %></td>
                   <td><%= x.phone %></td>
-                  <td><%= link_to "Edit" "" %></td>
+                  <!-- <td><%= link_to  %></td> -->
               </tr>
             <% end %>
           <% end %>
@@ -171,7 +171,7 @@
                   <td><%= x.ce_hours %></td>
                   <td><%= x.lead_instructor %></td>
                   <td><%= x.class_location %></td>
-                  <td><button class="btn"><%= link_to "delete", class_info_path(x), :method => 'delete', :confirm => 'Are you sure?' %></button></td>
+                  <td><button class="btn"><%= link_to "delete", class_info_path(x), :method => 'delete', :data => {confirm: "Are you sure?"} %></button></td>
               </tr>
             <% end %>
             <% end %>

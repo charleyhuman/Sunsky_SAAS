@@ -61,6 +61,7 @@
             <th>Issued By</th>
             <th>Issue Date</th>
             <th>Credit hour</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
@@ -70,6 +71,7 @@
                   <td><%= x.issued_by %></td>
                   <td><%= x.date_issued %></td>
                   <td><%= x.credit_hours %></td>
+                  <td><button class="btn"><%= link_to "delete", certificate_path(x), :method => 'delete', :data => {confirm: "Are you sure?"} %></button></td>
               </tr>
             <% end %>
         </tbody>
@@ -86,6 +88,7 @@
             <th>Class Number</th>
             <th>CE Hours</th>
             <th>Grade</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
@@ -95,6 +98,7 @@
                   <td><%= x.class_number %></td>
                   <td><%= x.ce_hours %></td>
                   <td><%= x.grade %></td>
+                  <td><button class="btn"><%= link_to "delete", class_attd_path(x), :method => 'delete', :data => {confirm: "Are you sure?"} %></button></td>
               </tr>
             <% end %>
         </tbody>

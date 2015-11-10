@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
 
+  resources :certificates
+  resources :class_attds
   resources :users
   resources :class_infos
 
