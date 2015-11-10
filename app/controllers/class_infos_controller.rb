@@ -17,6 +17,18 @@ class ClassInfosController < ApplicationController
 	  	end
   	end
 
+  	def destroy
+  		@class_info = ClassInfo.find(params[:id])
+  		@class_attd_total = ClassAttd.where(:class_number => @class_info.class_number)
+  		unless @class_attd_total.nil?
+  			@class_attd_total.each do |ca|
+  				ca.destroy
+  			end
+  		end
+  		@class_info.destroy
+  		redirect_to url_for(:controller => :sessions, :action => :index)
+  	end
+
   	private
   	def class_info_params
     	params.require(:class_info).permit(:class_name, :class_number, :class_location, :ce_hours, :class_host)
