@@ -9,11 +9,15 @@ require_relative "seed_helpers/seed_class_attd.rb"
 require_relative "seed_helpers/seed_class_info.rb"
 require_relative "seed_helpers/seed_user_info.rb"
 require_relative "seed_helpers/seed_certificate.rb"
+require_relative "seed_helpers/seed_ems_certification.rb"
+require_relative "seed_helpers/seed_fire_certification.rb"
 
 createClassAttd
 createClassInfo
 createUserInfo
 createCertificate
+createEmsCertification
+createFireCertification
 
 User.create(name: 'Adair Wiley', employee_id: '101317862', password: '123456')
 User.create(name: 'Allen Darrin', employee_id: '110246688', password: '123456')
