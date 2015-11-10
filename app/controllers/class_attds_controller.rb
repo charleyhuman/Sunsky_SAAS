@@ -13,8 +13,11 @@ class ClassAttdsController < ApplicationController
 	end
 
 	def create
-		if ClassInfo.find_by_class_number(class_attd_params[:class_number])
-			@class_attd = ClassAttd.new(class_attd_params)
+		class_info = ClassInfo.find_by_class_number(class_attd_params[:class_number])
+		if !class_info.nil?
+			new_class_attd = class_attd_params
+			new_class_attd[:ce_hours] = class_info.ce_hours
+			@class_attd = ClassAttd.new(new_class_attd)
 		else
 			redirect_to redirect_to url_for(:controller => :sessions, :action => :error) and return
 		end
@@ -28,6 +31,6 @@ class ClassAttdsController < ApplicationController
 
 	private
   	def class_attd_params
-    	params.require(:class_attd).permit(:class_number, :employee_id, :ce_hours, :grade)
+    	params.require(:class_attd).permit(:class_number, :employee_id, :grade)
   	end
 end
