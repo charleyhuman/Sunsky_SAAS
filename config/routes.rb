@@ -20,6 +20,14 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
 
+  get '/index/profile' => 'sessions#profile'
+  get '/index/certificate' => 'sessions#certificate'
+  get '/index/classes' => 'sessions#classes'
+  get '/index/employees' => 'sessions#employees'
+  get '/index/all_classes' => 'sessions#all_classes'
+  get '/index/all_certificates' => 'sessions#all_certificates'
+
+  get '/index', to: redirect('/index/profile')
   resources :certificates
   resources :class_attds
   resources :users

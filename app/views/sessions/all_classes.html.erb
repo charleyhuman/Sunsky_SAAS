@@ -1,0 +1,51 @@
+
+<body>
+
+<div class="container">
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#">Home</a></li>
+    <li><a href="/index/certificate">Certificates</a></li>
+    <li><a href="/index/classes">Classes</a></li>
+    <% if @user.is_supervisor%>
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#"> Manage <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li><a href="/index/employees">Employees</a></li>
+        <li><a href="/index/all_classes">Classes</a></li>
+        <li><a href="/index/all_certificates">Certificates</a></li>                        
+      </ul>
+    </li>
+    <% end %>
+  </ul>
+</div>
+
+
+
+<div class="container">          
+  <table class="table table-hover sortable">
+    <thead>
+      <tr>
+            <th>Name</th>
+            <th>Class Number</th>
+            <th>CE Hours</th>
+            <th>Instructor</th>     
+            <th>Location</th>
+            <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+            <% @class_info_total.each do |x| %>
+              <tr>
+                  <td><%= x.class_name %></td>
+                  <td><%= x.class_number %></td>
+                  <td><%= x.ce_hours %></td>
+                  <td><%= x.lead_instructor %></td>
+                  <td><%= x.class_location %></td>
+                  <td><button class="btn"><%= link_to "delete", class_info_path(x), :method => 'delete', :data => {confirm: "Are you sure?"} %></button></td>
+              </tr>
+            <% end %>
+    </tbody>
+  </table>
+</div>
+
+</body>

@@ -1,0 +1,51 @@
+
+<body>
+
+<div class="container">
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#">Home</a></li>
+    <li><a href="/index/certificate">Certificates</a></li>
+    <li><a href="/index/classes">Classes</a></li>
+    <% if @user.is_supervisor%>
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#"> Manage <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li><a href="/index/employees">Employees</a></li>
+        <li><a href="/index/all_classes">Classes</a></li>
+        <li><a href="/index/all_certificates">Certificates</a></li>                        
+      </ul>
+    </li>
+    <% end %>
+  </ul>
+</div>
+
+</body>
+
+<div class="container">          
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th><%= @user_info.name %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>Employee ID</th>
+        <th> <%= @user_info.employee_id %> </th>
+      </tr>
+      <tr>
+        <th>SSN</th>
+        <th> <%= @user_info.ssn %> </th>
+      </tr>
+      <tr>
+        <th>Phone Number</th>
+        <th> <%= @user_info.phone %> </th>
+      </tr>
+      <tr>
+        <th>Division</th>
+        <th> <%= @user_info.division %> </th>
+      </tr>
+    </tbody>
+  </table>
+</div>
