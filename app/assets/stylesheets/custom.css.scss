@@ -76,6 +76,16 @@ p {
 
 /*Nav Bar*/
 
+#sign_in_menu {
+  color: white;
+  text-decoration: none;
+}
+
+#sign_in_menu:hover {
+  color: yellow;
+}
+
+
 #menu_controller {
   color: #FDF7F6;
   background-color: #16A7EF;

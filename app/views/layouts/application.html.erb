@@ -19,7 +19,7 @@
             <% if logged_in? %>
             <li id="fat-menu" class="dropdown">
               <a id="menu_controller" href="#" class="dropdown-toggle" data-toggle="dropdown">
-                 Howdy <%= @current_user.name %> <b class="caret"></b>
+                 Howdy <%= @current_user.name.split(" ")[1] %> <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
                 <li><%= link_to "Profile", url_for(:controller => :sessions, :action => :index) %></li>
@@ -31,7 +31,7 @@
               </ul>
             </li>
           <% else %>
-            <li><%= link_to "Sign in", login_path %></li>
+          <a href="/login" id="sign_in_menu">Sign in</a>
           <% end %>
           </ul>
         </nav>
