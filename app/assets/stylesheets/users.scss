@@ -7,13 +7,24 @@
 
 
 table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-
+    /*border: 1px solid black;*/
+    table-layout: auto;
+    border-collapse: separate;
+    /*width: 50%;*/
 }
 th, td {
     padding: 5px;
     text-align: left;
+}
+th {
+    padding-top: 0;
+    text-align: left;
+}
+td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
 }
 table {
     align: "center";
@@ -42,7 +53,7 @@ main {
 }
 
 .user-tabs section {
-  width: 1200px;
+  width: 1140px;
   display: none;
   padding: 20px 0 0;
   border-top: 1px solid #ddd;
@@ -72,7 +83,7 @@ main {
 .user-tabs input:checked + label {
   color: #555;
   border: 1px solid #ddd;
-  border-top: 2px solid orange;
+  border-top: 2px solid #87CEEB;
   border-bottom: 1px solid #fff;
 }
 
