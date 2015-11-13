@@ -7,6 +7,10 @@ body {
   padding-top: 100px;
 }
 
+header {
+  background-color: #16A7EF;
+}
+
 section {
   overflow: auto;
 }
@@ -62,6 +66,7 @@ p {
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
+  margin-bottom: 10px;
 }
 
 #logo:hover {
@@ -70,6 +75,15 @@ p {
 }
 
 /*Nav Bar*/
+
+#menu_controller {
+  color: #FDF7F6;
+  background-color: #16A7EF;
+}
+
+#menu_controller:hover {
+    color: yellow;
+}
 
 .navbar-nav {
     color: white;

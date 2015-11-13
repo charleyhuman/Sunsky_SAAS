@@ -18,6 +18,11 @@ module SessionsHelper
 		!current_user.nil?
 	end
 
+	# Return the first name of current user
+	def get_first_name
+		@current_user.name
+	end
+
 	# Logs out the current user
 	def log_out
 		session.delete(:user_id)
