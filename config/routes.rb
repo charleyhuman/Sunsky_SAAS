@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   get '/employees' => 'sessions#employees'
   get '/all_classes' => 'sessions#all_classes'
   get '/all_certificates' => 'sessions#all_certificates'
+  get '/manage' => 'sessions#manage'
 
   resources :certificates
   resources :class_attds

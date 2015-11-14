@@ -18,6 +18,11 @@ module SessionsHelper
 		!current_user.nil?
 	end
 
+	# Return true is the user is supervisor, false otherwise
+	def supervisor?
+		current_user.is_supervisor
+	end
+
 	# Logs out the current user
 	def log_out
 		session.delete(:user_id)

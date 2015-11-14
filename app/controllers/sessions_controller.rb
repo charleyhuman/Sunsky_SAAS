@@ -144,5 +144,26 @@ class SessionsController < ApplicationController
     end
   end
 
+  def manage
+    if current_user.nil?
+      redirect_to url_for(:controller => :sessions, :action => :error) and return
+    end
+
+    @user = current_user
+    @user_info = UserInfo.find_by_employee_id(@user.employee_id)
+    @user_info_total = UserInfo.all
+    @class_info_total = ClassInfo.all
+
+    @user_certificates = Certificate.where(:employee_id => @user.employee_id)
+    @user_classes = ClassAttd.where(:employee_id => @user.employee_id)
+    @class_names = Hash.new
+    @user_classes.each do |uc|
+      class_info = ClassInfo.find_by_class_number(uc.class_number)
+      if !class_info.nil?
+        @class_names[uc.class_number] = class_info.class_name
+      end
+    end
+  end
+
 
 end
