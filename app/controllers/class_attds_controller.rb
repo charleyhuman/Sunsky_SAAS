@@ -19,7 +19,7 @@ class ClassAttdsController < ApplicationController
 			new_class_attd[:ce_hours] = class_info.ce_hours
 			@class_attd = ClassAttd.new(new_class_attd)
 		else
-			redirect_to redirect_to url_for(:controller => :sessions, :action => :error) and return
+			redirect_to url_for(:controller => :sessions, :action => :error) and return
 		end
 		
 		if @class_attd.save

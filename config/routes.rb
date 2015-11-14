@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
+  
+  delete '/certificate.:id' => 'certificates#destroy'
 
   get '/profile' => 'sessions#profile'
   get '/certificate' => 'sessions#certificate'
@@ -31,6 +33,8 @@ Rails.application.routes.draw do
   resources :class_attds
   resources :users
   resources :class_infos
+  resources :ems_certifications
+  resources :fire_certifications
 
 
   # Example of named route that can be invoked with purchase_url(id: product.id)

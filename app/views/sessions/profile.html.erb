@@ -1,51 +1,189 @@
+<main>
+
+  <div class="user-tabs">
+
+    <input id="tab1" type="radio" name="tabs" checked>
+    <label for="tab1">Profile</label>
+    
+    <input id="tab2" type="radio" name="tabs">
+    <label for="tab2">Certificates</label>
+    
+    <input id="tab3" type="radio" name="tabs">
+    <label for="tab3">Classes</label>
+
+    <input id="tab4" type="radio" name="tabs">
+    <label for="tab4">EMS</label>
+
+    <input id="tab5" type="radio" name="tabs">
+    <label for="tab5">Fire</label>
+
+    <section id="content1">
+
+      <div class="container">          
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th><%= @user_info.name %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Employee ID</th>
+              <th> <%= @user_info.employee_id %> </th>
+            </tr>
+            <tr>
+              <th>SSN</th>
+              <th> <%= @user_info.ssn %> </th>
+            </tr>
+            <tr>
+              <th>Phone Number</th>
+              <th> <%= @user_info.phone %> </th>
+            </tr>
+            <tr>
+              <th>Division</th>
+              <th> <%= @user_info.division %> </th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </section>
+    
+    <section id="content2">
+
+      <div class="container">          
+        <table class="table table-hover sortable">
+          <thead>
+            <tr>
+              <th>Certificate Name</th>
+              <th>Issued By</th>
+              <th>Issue Date</th>
+              <th>Credit hour</th>
+            </tr>
+          </thead>
+          <tbody>
+           <% @user_certificates.each do |x| %>
+           <tr>
+            <td><%= x.certificate %></td>
+            <td><%= x.issued_by %></td>
+            <td><%= x.date_issued %></td>
+            <td><%= x.credit_hours %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+  </section>
+
+
+  <section id="content3">
+
+    <div class="container">          
+      <table class="table table-hover sortable">
+        <thead>
+          <tr>
+            <th>Class Name</th>
+            <th>Class Number</th>
+            <th>CE Hours</th>
+            <th>Grade</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @user_classes.each do |x| %>
+          <tr>
+            <td><%= @class_names[x.class_number] %></td>
+            <td><%= x.class_number %></td>
+            <td><%= x.ce_hours %></td>
+            <td><%= x.grade %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="content4">
+    <div class="container">
+      <!-- Trigger the modal with a button -->
+
+
+      <table class="table table-hover sortable">
+        <thead>
+          <tr>
+            <th>tdh_level_1</th>
+            <th>tdh_level_2</th>
+            <th>tdh_level_3</th>
+          </tr>
+        </thead>
+        <tbody>
+
+         <% @user_EMS.each do |x| %>
+
+         <!-- Modal -->
+         <div id="myModal" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+              </div>
+              <div class="modal-body">
+                <p><%= x.tdh_level_1 %></p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <tr>
+          <td type="button" class="btn" data-toggle="modal" data-target="#myModal"><%= x.tdh_level_1 %></td>
+          <td><%= x.tdh_level_2 %></td>
+          <td><%= x.tdh_level_3 %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container"> 
+  </div>
+
+</section>
+
+<section id="content5">
+      <table class="table table-hover sortable">
+        <thead>
+          <tr>
+            <th>sf_level</th>
+            <th>tdh_level_2</th>
+            <th>tdh_level_3</th>
+          </tr>
+        </thead>
+        <tbody>
+
+         <% @user_Fire.each do |x| %>        
+        <tr>
+          <td><%= x.sf_level %></td>
+          <td><%= x.sf_received_date %></td>
+          <td><%= x.sf_expiration %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+  <div class="container">
+  </div>
+
+</section>
+
+</div>
+</main>
 
 <body>
-
-<div class="container">
-  <ul class="nav nav-tabs">
-    <li class="active"><a href="#">Home</a></li>
-    <li><a href="/certificate">Certificates</a></li>
-    <li><a href="/classes">Classes</a></li>
-    <% if @user.is_supervisor%>
-    <li class="dropdown">
-      <a class="dropdown-toggle" data-toggle="dropdown" href="#"> Manage <span class="caret"></span></a>
-      <ul class="dropdown-menu">
-        <li><a href="/employees">Employees</a></li>
-        <li><a href="/all_classes">Classes</a></li>
-        <li><a href="/all_certificates">Certificates</a></li>                        
-      </ul>
-    </li>
-    <% end %>
-  </ul>
-</div>
-
-</body>
-
-<div class="container">          
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th><%= @user_info.name %></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th>Employee ID</th>
-        <th> <%= @user_info.employee_id %> </th>
-      </tr>
-      <tr>
-        <th>SSN</th>
-        <th> <%= @user_info.ssn %> </th>
-      </tr>
-      <tr>
-        <th>Phone Number</th>
-        <th> <%= @user_info.phone %> </th>
-      </tr>
-      <tr>
-        <th>Division</th>
-        <th> <%= @user_info.division %> </th>
-      </tr>
-    </tbody>
-  </table>
-</div>
