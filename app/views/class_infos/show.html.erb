@@ -1,0 +1,21 @@
+<h1> <%= @class_info.class_name %> </h1>
+
+<div class="center"> 
+   <table border="1" style="width:50%">
+        <thead>
+          <tr>
+           
+            <th>Employee ID</th>
+            <th>Grade</th>
+          </tr>
+        </thead>
+        <tbody>
+           <%= @students_in_class.each do |x| %>
+              <tr>
+                  <td><%= x.employee_id %></td>
+                  <td><%= x.grade %></td>
+              </tr>
+            <% end %>
+        </tbody>
+      </table>
+</div>

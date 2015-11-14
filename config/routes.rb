@@ -13,21 +13,20 @@ Rails.application.routes.draw do
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
   get 'error' => 'sessions#error'
-  get 'index' => 'sessions#index'
+  get 'index' => 'sessions#profile'
   
   get 'signup' => 'users#new'
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
 
-  get '/index/profile' => 'sessions#profile'
-  get '/index/certificate' => 'sessions#certificate'
-  get '/index/classes' => 'sessions#classes'
-  get '/index/employees' => 'sessions#employees'
-  get '/index/all_classes' => 'sessions#all_classes'
-  get '/index/all_certificates' => 'sessions#all_certificates'
+  get '/profile' => 'sessions#profile'
+  get '/certificate' => 'sessions#certificate'
+  get '/classes' => 'sessions#classes'
+  get '/employees' => 'sessions#employees'
+  get '/all_classes' => 'sessions#all_classes'
+  get '/all_certificates' => 'sessions#all_certificates'
 
-  get '/index', to: redirect('/index/profile')
   resources :certificates
   resources :class_attds
   resources :users

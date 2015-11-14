@@ -18,11 +18,6 @@ module SessionsHelper
 		!current_user.nil?
 	end
 
-	# Return the first name of current user
-	def get_first_name
-		@current_user.name
-	end
-
 	# Logs out the current user
 	def log_out
 		session.delete(:user_id)
@@ -33,4 +28,9 @@ module SessionsHelper
 	 def get_user_path(user_info)
      	user_path( User.find_by_employee_id(user_info.employee_id) )
      end
+
+    # Find path for each class
+    def get_class_path(class_info)
+    	class_info_path(ClassInfo.find_by_class_number(class_info.class_number))
+    end
 end

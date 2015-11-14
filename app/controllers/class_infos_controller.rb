@@ -17,6 +17,11 @@ class ClassInfosController < ApplicationController
 	  	end
   	end
 
+    def show
+      @class_info = ClassInfo.find(params[:id])
+      @students_in_class = ClassAttd.where(:class_number => @class_info.class_number)
+    end
+
   	def destroy
   		@class_info = ClassInfo.find(params[:id])
   		@class_attd_total = ClassAttd.where(:class_number => @class_info.class_number)
