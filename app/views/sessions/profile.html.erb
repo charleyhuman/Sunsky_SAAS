@@ -20,10 +20,10 @@
     <section id="content1">
 
       <div class="container">          
-        <table class="table table-hover">
+        <table class="table table-hover" width="75%">
           <thead>
             <tr>
-              <th>Name</th>
+              <!-- <th>Name</th> -->
               <th><%= @user_info.name %></th>
             </tr>
           </thead>
@@ -37,8 +37,16 @@
               <th> <%= @user_info.ssn %> </th>
             </tr>
             <tr>
+              <th>Date of Birth</th>
+              <th> <%= @user_info.date_of_birth %> </th>
+            </tr>
+            <tr>
               <th>Phone Number</th>
               <th> <%= @user_info.phone %> </th>
+            </tr>
+            <tr>
+              <th>County</th>
+              <th> <%= @user_info.county %> </th>
             </tr>
             <tr>
               <th>Division</th>
