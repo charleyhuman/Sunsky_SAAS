@@ -23,12 +23,11 @@ Rails.application.routes.draw do
   delete '/certificate.:id' => 'certificates#destroy'
 
   get '/profile' => 'sessions#profile'
-  get '/certificate' => 'sessions#certificate'
-  get '/classes' => 'sessions#classes'
   get '/employees' => 'sessions#employees'
   get '/all_classes' => 'sessions#all_classes'
   get '/all_certificates' => 'sessions#all_certificates'
   get '/manage' => 'sessions#manage'
+  get '/all_ems' => 'sessions#all_ems'
 
   resources :certificates
   resources :class_attds

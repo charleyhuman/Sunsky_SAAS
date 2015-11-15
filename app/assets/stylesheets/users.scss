@@ -2,3 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+a {
+  color: #000000;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+td a {
+	color: red;
+	text-decoration: none;
+}
+
+td a:hover {
+	color: red;
+}

@@ -1,0 +1,25 @@
+<body>
+
+  <table class="table table-hover sortable">
+    <thead>
+      <tr>
+            <th>Employee ID</th>
+            <th>tdh_level_1</th>
+            <th>tdh_level_2</th>
+            <th>tdh_level_3</th>
+      </tr>
+    </thead>
+    <tbody>
+            <% @all_EMS.each do |x| %>
+              <tr>
+                  <td><%= x.employee_id %></td>
+                  <td><%= x.tdh_level_1 %></td>
+                  <td><%= x.tdh_level_2 %></td>
+                  <td><%= x.tdh_level_3 %></td>
+              </tr>
+            <% end %>
+    </tbody>
+  </table>
+
+
+</body>
