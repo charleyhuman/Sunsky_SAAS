@@ -13,7 +13,7 @@
     <tbody>
             <% @user_info_total.each do |x| %>
               <tr>
-                  <td><%= link_to x.name, user_path(x), :method => 'get' %></td>
+                  <td id="name_attribute"><%= link_to x.name, user_path(x), :method => 'get' %></td>
                   <td><%= x.employee_id %></td>
                   <td><%= x.address %></td>
                   <td><%= x.phone %></td>

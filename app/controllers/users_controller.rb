@@ -29,6 +29,8 @@ class UsersController < ApplicationController
         @class_names[uc.class_number] = class_info.class_name
       end
     end
+    @user_ems = EmsCertification.find_by_employee_id(@user.employee_id)
+    @user_fire = FireCertification.find_by_employee_id(@user.employee_id)
 
   end
 

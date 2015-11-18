@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   get '/all_certificates' => 'sessions#all_certificates'
   get '/manage' => 'sessions#manage'
   get '/all_ems' => 'sessions#all_ems'
+  get '/all_fire' => 'sessions#all_fire'
 
   resources :certificates
   resources :class_attds

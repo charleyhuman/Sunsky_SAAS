@@ -1,0 +1,25 @@
+<body>
+
+  <table class="table table-hover sortable">
+    <thead>
+      <tr>
+            <th>Employee ID</th>
+            <th>sf_received_date</th>
+            <th>arff_cert</th>
+            <th>sf_expiration</th>
+      </tr>
+    </thead>
+    <tbody>
+            <% @all_Fire.each do |x| %>
+              <tr>
+                  <td><%= x.employee_id %></td>
+                  <td><%= x.sf_received_date %></td>
+                  <td><%= x.arff_cert %></td>
+                  <td><%= x.sf_expiration %></td>
+              </tr>
+            <% end %>
+    </tbody>
+  </table>
+
+
+</body>

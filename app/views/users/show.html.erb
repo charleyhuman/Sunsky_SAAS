@@ -1,68 +1,74 @@
 <main>
 
-<form class="container">
+  <form class="container">
     <div class="row">
-        <div class="col-md-3">
-            <h1 style='float: left;'><%= @user.name %></h1>
-        </div>
+      <div class="col-md-3">
+        <h1 style='float: left;'><%= @user.name %></h1>
+      </div>
 
-        <div class="col-md-3">
-            <button class="btn" style="float: right; position: relative; top: 10px; right: 10px;"><%= link_to "Return", '../profile' %></button>
-        </div>
+      <div class="col-md-3">
+        <button class="btn" style="float: right; position: relative; top: 10px; right: 10px;"><%= link_to "Return", '../employees' %></button>
+      </div>
     </div>
-</form>
+  </form>
 
-<div class="user-tabs">
+  <div class="user-tabs">
 
-  <input id="tab1" type="radio" name="tabs" checked>
-  <label for="tab1">Profile</label>
+    <input id="tab1" type="radio" name="tabs" checked>
+    <label for="tab1">Profile</label>
     
-  <input id="tab2" type="radio" name="tabs">
-  <label for="tab2">Certificates</label>
+    <input id="tab2" type="radio" name="tabs">
+    <label for="tab2">Certificates</label>
     
-  <input id="tab3" type="radio" name="tabs">
-  <label for="tab3">Class</label>
-    
-  <section id="content1">
-<div class="center"> 
-<% unless @user_info.nil?%>
-      <table style="width:50%">
-        <tr>
-        <th>Name</th>
-          <th> <%= @user_info.name %> </th>
-        </tr>
-        <tr>
-          <th>Employee ID</th>
-          <th> <%= @user_info.employee_id %> </th>
-        </tr>
-        <tr>
-          <th>SSN</th>
-          <th> <%= @user_info.ssn %> </th>
-        </tr>
-        <tr>
-          <th>Phone Number</th>
-          <th> <%= @user_info.phone %> </th>
-        </tr>
-        <tr>
-          <th>Division</th>
-          <th> <%= @user_info.division %> </th>
-        </tr>
-        
-      </table>
-  <%end%>
-  <% if @user_info.nil?%>
-    <p>No information for current user.</p>
-  <% end %>
-</div>
-  </section>
-    
-  <section id="content2">
-    <button class="btn" style="float: right; position: relative;"><%= link_to "Add Certificate", new_certificate_path(:employee_id => @user.employee_id) %></button>
+    <input id="tab3" type="radio" name="tabs">
+    <label for="tab3">Class</label>
 
-   <table border="1" style="width:50%">
+    <input id="tab4" type="radio" name="tabs">
+    <label for="tab4">EMS</label>
+
+    <input id="tab5" type="radio" name="tabs">
+    <label for="tab5">Fire</label>    
+    
+    <section id="content1">
+      <div class="center"> 
+        <% unless @user_info.nil?%>
+        <table style="width:50%">
+          <tr>
+            <th>Name</th>
+            <th> <%= @user_info.name %> </th>
+          </tr>
+          <tr>
+            <th>Employee ID</th>
+            <th> <%= @user_info.employee_id %> </th>
+          </tr>
+          <tr>
+            <th>SSN</th>
+            <th> <%= @user_info.ssn %> </th>
+          </tr>
+          <tr>
+            <th>Phone Number</th>
+            <th> <%= @user_info.phone %> </th>
+          </tr>
+          <tr>
+            <th>Division</th>
+            <th> <%= @user_info.division %> </th>
+          </tr>
+
+        </table>
+        <%end%>
+        <% if @user_info.nil?%>
+        <p>No information for current user.</p>
+        <% end %>
+      </div>
+    </section>
+    
+    <section id="content2">
+      <button class="btn" style="float: right; position: relative;"><%= link_to "Add Certificate", new_certificate_path(:employee_id => @user.employee_id) %></button>
+
+      <table border="1" style="width:50%">
         <thead>
           <tr>
-           
+
             <th>Certificate Name</th>
             <th>Issued By</th>
             <th>Issue Date</th>
@@ -71,45 +77,84 @@
           </tr>
         </thead>
         <tbody>
-           <% @user_certificates.each do |x| %>
-              <tr>
-                  <td><%= x.certificate %></td>
-                  <td><%= x.issued_by %></td>
-                  <td><%= x.date_issued %></td>
-                  <td><%= x.credit_hours %></td>
-                  <td><button class="btn"><%= link_to "delete", certificate_path(x), :method => 'delete', :data => {confirm: "Are you sure?"} %></button></td>
-              </tr>
-            <% end %>
-        </tbody>
-      </table>
+         <% @user_certificates.each do |x| %>
+         <tr>
+          <td><%= x.certificate %></td>
+          <td><%= x.issued_by %></td>
+          <td><%= x.date_issued %></td>
+          <td><%= x.credit_hours %></td>
+          <td><button class="btn"><%= link_to "delete", certificate_path(x), :method => 'delete', :data => {confirm: "Are you sure?"} %></button></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
 
- 
+
   </section>
-    
+
   <section id="content3">
     <button class="btn" style="float: right; position: relative;"><%= link_to "Add Class Attendance", new_class_attd_path(:employee_id => @user.employee_id) %></button>
-     <table border="1" style="width:80%">
-        <thead>
-          <tr>
-            <th>Class Name</th>
-            <th>Class Number</th>
-            <th>CE Hours</th>
-            <th>Grade</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-           <% @user_classes.each do |x| %>
-              <tr>
-                  <td><%= @class_names[x.class_number] %></td>
-                  <td><%= x.class_number %></td>
-                  <td><%= x.ce_hours %></td>
-                  <td><%= x.grade %></td>
-                  <td><button class="btn"><%= link_to "delete", class_attd_path(x), :method => 'delete', :data => {confirm: "Are you sure?"} %></buttocccn></td>
-              </tr>
-            <% end %>
-        </tbody>
-      </table>
-  </section>
+    <table border="1" style="width:80%">
+      <thead>
+        <tr>
+          <th>Class Name</th>
+          <th>Class Number</th>
+          <th>CE Hours</th>
+          <th>Grade</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+       <% @user_classes.each do |x| %>
+       <tr>
+        <td><%= @class_names[x.class_number] %></td>
+        <td><%= x.class_number %></td>
+        <td><%= x.ce_hours %></td>
+        <td><%= x.grade %></td>
+        <td><button class="btn"><%= link_to "delete", class_attd_path(x), :method => 'delete', :data => {confirm: "Are you sure?"} %></buttocccn></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>
+
+ <section id="content4">
+    <table border="1" style="width:80%">
+      <thead>
+        <tr>
+          <th>tdh_level_1</th>
+          <th>tdh_level_2</th>
+          <th>tdh_level_3</th>
+        </tr>
+      </thead>
+      <tbody>
+       <tr>
+        <td><%= @user_ems.tdh_level_1 %></td>
+        <td><%= @user_ems.tdh_level_2 %></td>
+        <td><%= @user_ems.tdh_level_3 %></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+ <section id="content5">
+    <table border="1" style="width:80%">
+      <thead>
+        <tr>
+          <th>sf_received_date</th>
+          <th>fi_received_date</th>
+          <th>fi_expiration</th>
+        </tr>
+      </thead>
+      <tbody>
+       <tr>
+        <td><%= @user_fire.sf_received_date %></td>
+        <td><%= @user_fire.fi_received_date %></td>
+        <td><%= @user_fire.fi_expiration %></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
 </div>
 </main>

@@ -107,8 +107,13 @@ class SessionsController < ApplicationController
   end
 
   def all_ems
-    # Load EMS and Fire certificate
+    # Load EMS certificate
     @all_EMS = EmsCertification.all
+  end
+
+  def all_fire
+    # Load Fire certificate
+    @all_Fire = FireCertification.all
   end
 
   def manage
